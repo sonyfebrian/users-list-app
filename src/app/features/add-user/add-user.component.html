@@ -1,0 +1,26 @@
+<h1>Add User</h1>
+<mat-card>
+  <mat-card-content>
+    <form #loginForm="ngForm" id="addUser" (ngSubmit)="addUser(loginForm)">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            placeholder="johndoe"
+            name="username"
+            ngModel
+            required
+            #username="ngModel"
+          />
+          <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+      </p>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-flat-button color="primary" form="addUser" type="submit">Register User</button>
+  </mat-card-actions>
+</mat-card>
